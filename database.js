@@ -1637,7 +1637,14 @@ function getUser(id) {
 
 function createUser(user) {
   let id = crypto.randomUUID();
-  dbUsers.push(user);
+  let newUser = {};
+  newUser.id = id;
+  newUser.firstName = user.nombre;
+  newUser.email = user.email;
+  newUser.password = user.contrasena;
+  newUser.userName = user.nombre_usuario;
+  dbUsers.push(newUser);
+  return id;
 }
 
 function deleteUser(id) {

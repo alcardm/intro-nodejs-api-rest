@@ -1,6 +1,7 @@
 console.log("Cargando configuración...");
 // Importar las dependencias
 const express = require("express");
+var bodyParser = require("body-parser");
 
 // Cargar configuracion app web
 const PORT = process.env.PORT || 3000;
@@ -12,7 +13,7 @@ console.log("Configurando Routers...");
 const userRouter = require("./routes/routerUser");
 
 //Configurar Routers en la APP
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 app.use("/api/usuarios", userRouter);
 
